@@ -1,0 +1,1108 @@
+{
+	"info": {
+		"_postman_id": "ed12da69-fd6c-47b3-8e9f-c14e887a6f97",
+		"name": "ETravel2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21919678"
+	},
+	"item": [
+		{
+			"name": "Module",
+			"item": [
+				{
+					"name": "Tambah",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Settings\",\r\n  \"alias\": \"settings\",\r\n  \"url\": \"/settings\",\r\n  \"icon_cls\": \"fa-cog\",\r\n  \"seq\": 3,\r\n  \"pid\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/module",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"module"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"User Manager Updated\",\r\n  \"seq\": 3,\r\n  \"_method\" : \"PUT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/module/2",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"module",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/module",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"module"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/module/2",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"module",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdXNlcl9tb2R1bGUudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMTMyMTgsImV4cCI6MTc1MjIxNjgxOCwibmJmIjoxNzUyMjEzMjE4LCJqdGkiOiJoZFRQZ1VIR1JVMm1EcmcyIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.kRThMsrqiGAJSmr4l5CQaazV7ccRxZEufUoGaAwxXig",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"User Manager Updated\",\r\n  \"seq\": 3,\r\n  \"_method\" : \"PUT\"\r\n}"
+						},
+						"url": {
+							"raw": "http://user_module.test/api/module/1",
+							"protocol": "http",
+							"host": [
+								"user_module",
+								"test"
+							],
+							"path": [
+								"api",
+								"module",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Tambah",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"User\",\r\n  \"description\": \"Role pengguna biasa\",\r\n  \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/Role",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"Role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Superadmin\",\r\n  \"description\": \"Full access\",\r\n  \"active\": false,\r\n  \"_method\" : \"PUT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/Role/1",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"Role",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/Role",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"Role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/Role/1",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"Role",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdXNlcl9tb2R1bGUudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMTc1MDgsImV4cCI6MTc1MjIyMTEwOCwibmJmIjoxNzUyMjE3NTA4LCJqdGkiOiJlVmN3ekM3N0tKTEd5R1A2Iiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.1G2NbIRkzjrw3gUrMVCtH7bJ2EDO6yp8b4t5FZ2GoiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"User Manager Updated\",\r\n  \"seq\": 3,\r\n  \"_method\" : \"PUT\"\r\n}"
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/Role/4",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"Role",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Tambah",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"adminuser\",\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"password123\",\r\n  \"password_confirmation\": \"password123\",\r\n  \"role_id\": 1,\r\n  \"passport\": \"passphoto.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/User",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/User",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/User/1",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"User",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"adminupdated\",\r\n  \"email\": \"adminupdated@example.com\",\r\n  \"password\": \"newpassword\",\r\n  \"password_confirmation\": \"newpassword\",\r\n  \"role_id\": 2,\r\n  \"passport\": \"updatedphoto.jpg\",\r\n  \"_method\" : \"PUT\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/User/1",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"User",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdXNlcl9tb2R1bGUudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMTc1MDgsImV4cCI6MTc1MjIyMTEwOCwibmJmIjoxNzUyMjE3NTA4LCJqdGkiOiJlVmN3ekM3N0tKTEd5R1A2Iiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.1G2NbIRkzjrw3gUrMVCtH7bJ2EDO6yp8b4t5FZ2GoiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/User/2",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"User",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RolePriv",
+			"item": [
+				{
+					"name": "Tambah",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role_id\": 1,\r\n  \"module_id\": 6,\r\n  \"allow_view\": 1,\r\n  \"allow_new\": 1,\r\n  \"allow_edit\": 1,\r\n  \"allow_delete\": 1,\r\n  \"allow_print\": 1,\r\n  \"allow_approve\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/PrivRole",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"PrivRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/PrivRole",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"PrivRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/admin/role-priv/1/3",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"admin",
+								"role-priv",
+								"1",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"allow_view\": 0,\r\n  \"allow_edit\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/admin/role-priv/1/3",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"admin",
+								"role-priv",
+								"1",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/admin/role-priv/1/3",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"admin",
+								"role-priv",
+								"1",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "setting situs",
+			"item": [
+				{
+					"name": "Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/PrivRole",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"PrivRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODYxMDQsImV4cCI6MTc1MjI4OTcwNCwibmJmIjoxNzUyMjg2MTA0LCJqdGkiOiJxQjhIUzZaNjdRREpWUEljIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.LARfSyJYnc7CWl5Fvskg4cTg9GRL3FAPSsHwuIDeGJ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/SettingSitus/1",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"SettingSitus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODQzMTgsImV4cCI6MTc1MjI4NzkxOCwibmJmIjoxNzUyMjg0MzE4LCJqdGkiOiIxVENEY0llckZRZXMxUFRUIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.uEMr9FWQ9DZe143ZPyxSvoqhw4d8UxUt6jnd_LweJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://etravel2.test/api/admin/role-priv/1/3",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"admin",
+								"role-priv",
+								"1",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODYxMDQsImV4cCI6MTc1MjI4OTcwNCwibmJmIjoxNzUyMjg2MTA0LCJqdGkiOiJxQjhIUzZaNjdRREpWUEljIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.LARfSyJYnc7CWl5Fvskg4cTg9GRL3FAPSsHwuIDeGJ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_app",
+									"value": "Aplikasi Keren1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Judul",
+									"type": "text"
+								},
+								{
+									"key": "footer",
+									"value": "Hak Cipta",
+									"type": "text"
+								},
+								{
+									"key": "other",
+									"value": "Versi 1.0",
+									"type": "text"
+								},
+								{
+									"key": "logo_file",
+									"type": "file",
+									"src": "/G:/File-HP/Pictures/WhatsApp/IMG-20241119-WA0008.jpg"
+								},
+								{
+									"key": "background_file",
+									"type": "file",
+									"src": "/G:/File-HP/Pictures/WhatsApp/74362807a9e346168c4f8380c8c4699f.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/SettingSitus",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"SettingSitus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyODYxMDQsImV4cCI6MTc1MjI4OTcwNCwibmJmIjoxNzUyMjg2MTA0LCJqdGkiOiJxQjhIUzZaNjdRREpWUEljIiwic3ViIjoiMSIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.LARfSyJYnc7CWl5Fvskg4cTg9GRL3FAPSsHwuIDeGJ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_app",
+									"value": "Aplikasi Keren1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Judul",
+									"type": "text"
+								},
+								{
+									"key": "footer",
+									"value": "Hak Cipta",
+									"type": "text"
+								},
+								{
+									"key": "other",
+									"value": "Versi 1.0",
+									"type": "text"
+								},
+								{
+									"key": "logo_file",
+									"type": "file",
+									"src": "/G:/File-HP/Pictures/WhatsApp/IMG-20241119-WA0008.jpg"
+								},
+								{
+									"key": "background_file",
+									"type": "file",
+									"src": "/G:/File-HP/Pictures/WhatsApp/74362807a9e346168c4f8380c8c4699f.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://etravel2.test/api/SettingSitus",
+							"protocol": "http",
+							"host": [
+								"etravel2",
+								"test"
+							],
+							"path": [
+								"api",
+								"SettingSitus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin1",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "admin1",
+							"type": "text"
+						},
+						{
+							"key": "role_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "dadang",
+							"type": "text"
+						},
+						{
+							"key": "passport",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://etravel2.test/api/Register",
+					"protocol": "http",
+					"host": [
+						"etravel2",
+						"test"
+					],
+					"path": [
+						"api",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXRyYXZlbDIudGVzdC9hcGkvTG9naW4iLCJpYXQiOjE3NTIyMjA0MTUsImV4cCI6MTc1MjIyNDAxNSwibmJmIjoxNzUyMjIwNDE1LCJqdGkiOiJnQTZIanpqSUljVUJlZFhPIiwic3ViIjoiMyIsInBydiI6IjdhYmUyODI0ZjI2NTI2NDI0YzU0Mjc4NDE2ZTA4NjI4MWU3NzJkYmQifQ.0wxGrO3bjltQWlqHLjGpLRj1Or3js7-qGvD7PSoMtn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "Admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://etravel2.test/api/Login",
+					"protocol": "http",
+					"host": [
+						"etravel2",
+						"test"
+					],
+					"path": [
+						"api",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
