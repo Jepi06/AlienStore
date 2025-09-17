@@ -2,6 +2,6 @@
 
 return [
     'is_production' => false, // true jika sudah live
-    'server_key' => env('MIDTRANS_SERVER_KEY'),
-    'client_key' => env('MIDTRANS_CLIENT_KEY'),
+    'server_key' => 'Mid-server-26zgM4IuwamE1mrFW1-eRknt',
+    'client_key' => 'Mid-client-6DvWK1vxjn5IhUeU',
 ];
