@@ -5,7 +5,7 @@
 /vendor
 /public/storage/products
 /public/storage
-/storage
+/storage/app/public
 .env.backup
 .env.production
 .phpunit.result.cache
