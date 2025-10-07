@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductSubcategoryController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\TransaksiController;
+use App\Models\Transaksi;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/user-login-categories', [ProductCategoryController::class,'index'])->middleware('role:User');
     Route::get('/user-login-subcategories', [ProductSubcategoryController::class,'index'])->middleware('role:User');
     Route::post('/transaksi', [TransaksiController::class, 'store'])->middleware('role:User');
-    Route::apiResource('transaksi-admin', CartController::class)->middleware('role:Admin');
+    Route::apiResource('transaksi-admin', TransaksiController::class)->middleware('role:Admin');
     Route::apiResource('carts', CartController::class)->middleware('role:User');
 });
 Route::get('/payment/success/{orderId}', [TransaksiController::class, 'paymentSuccess'])
