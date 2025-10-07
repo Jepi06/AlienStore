@@ -13,7 +13,7 @@ use Midtrans\Notification;
 class TransaksiController extends Controller
 {
     /**
-     * Buat transaksi dan kembalikan URL Midtrans
+     * Buat transaksi Midtrans dan kembalikan URL Snap
      */
     public function store(Request $request)
     {
@@ -23,21 +23,26 @@ class TransaksiController extends Controller
             'qty'        => 'nullable|integer|min:1',
         ]);
 
+        if (empty($validated['cart_id']) && empty($validated['product_id'])) {
+            return response()->json(['message' => 'Cart atau Product harus diisi'], 422);
+        }
+
+        // Hitung total harga
         $grossAmount = 0;
 
         if (!empty($validated['cart_id'])) {
             $cart = Cart::with('items.product')->findOrFail($validated['cart_id']);
             $grossAmount = $cart->items->sum(fn($item) => $item->product->harga * $item->qty);
-        } elseif (!empty($validated['product_id'])) {
+        } else {
             $product = Product::findOrFail($validated['product_id']);
             $qty = $validated['qty'] ?? 1;
             $grossAmount = $product->harga * $qty;
-        } else {
-            return response()->json(['message' => 'Cart atau Product harus diisi'], 422);
         }
 
+        // Buat order ID unik
         $orderId = 'TRX-' . time() . '-' . $request->user()->id;
 
+        // Setup parameter transaksi Midtrans
         $params = [
             'transaction_details' => [
                 'order_id'     => $orderId,
@@ -47,10 +52,20 @@ class TransaksiController extends Controller
                 'first_name' => $request->user()->name,
                 'email'      => $request->user()->email,
             ],
+            // callback otomatis tanpa daftar di dashboard Midtrans
+            'callbacks' => [
+                'notification_url' => url('/api/midtrans/callback'),
+            ],
         ];
 
-        $snapTransaction = Snap::createTransaction($params);
+        try {
+            $snapTransaction = Snap::createTransaction($params);
+        } catch (\Exception $e) {
+            Log::error('Gagal membuat transaksi Midtrans:', ['error' => $e->getMessage()]);
+            return response()->json(['message' => 'Gagal membuat transaksi Midtrans', 'error' => $e->getMessage()], 500);
+        }
 
+        // Simpan transaksi ke database
         $transaksi = Transaksi::create([
             'user_id'      => $request->user()->id,
             'cart_id'      => $validated['cart_id'] ?? null,
@@ -59,49 +74,57 @@ class TransaksiController extends Controller
             'gross_amount' => $grossAmount,
             'status'       => 'pending',
             'order_id'     => $orderId,
-            'snap_token'   => $snapTransaction->token,
+            'snap_token'   => $snapTransaction->token ?? null,
         ]);
 
         return response()->json([
+            'message'      => 'Transaksi berhasil dibuat',
             'transaksi'    => $transaksi,
-            'redirect_url' => $snapTransaction->redirect_url,
+            'redirect_url' => $snapTransaction->redirect_url ?? null,
         ]);
     }
 
     /**
-     * Callback dari Midtrans untuk update status transaksi
+     * Callback otomatis dari Midtrans (tidak perlu daftar manual)
      */
     public function callback(Request $request)
     {
-        $notif = new Notification();
+        try {
+            $notif = new Notification();
+        } catch (\Exception $e) {
+            Log::error('Gagal memproses notifikasi Midtrans:', ['error' => $e->getMessage()]);
+            return response()->json(['message' => 'Gagal memproses callback'], 400);
+        }
 
-        // Log untuk debug notifikasi
-        Log::info('Midtrans callback diterima:', [
-            'order_id' => $notif->order_id,
-            'transaction_status' => $notif->transaction_status,
-            'payment_type' => $notif->payment_type,
+        $orderId = $notif->order_id;
+        $transactionStatus = $notif->transaction_status;
+        $paymentType = $notif->payment_type;
+        $transactionTime = $notif->transaction_time;
+
+        Log::info('Callback diterima dari Midtrans:', [
+            'order_id' => $orderId,
+            'status' => $transactionStatus,
+            'payment_type' => $paymentType,
         ]);
 
-        $transaksi = Transaksi::where('order_id', $notif->order_id)->first();
+        $transaksi = Transaksi::where('order_id', $orderId)->first();
 
         if (!$transaksi) {
             return response()->json(['message' => 'Transaksi tidak ditemukan'], 404);
         }
 
-        // Simpan perubahan status terbaru dari Midtrans
         $oldStatus = $transaksi->status;
         $transaksi->update([
-            'status'           => $notif->transaction_status,
-            'payment_type'     => $notif->payment_type,
-            'transaction_time' => $notif->transaction_time,
+            'status'           => $transactionStatus,
+            'payment_type'     => $paymentType,
+            'transaction_time' => $transactionTime,
         ]);
 
-        // Proses hanya jika status pembayaran sukses dan belum pernah di-settle
-        if (in_array($notif->transaction_status, ['settlement', 'capture']) && $oldStatus !== 'settlement') {
+        // Jika pembayaran sukses (capture/settlement)
+        if (in_array($transactionStatus, ['settlement', 'capture']) && $oldStatus !== 'settlement') {
 
             if ($transaksi->cart_id) {
                 $cart = Cart::with('items.product')->find($transaksi->cart_id);
-
                 if ($cart && $cart->items->count() > 0) {
                     foreach ($cart->items as $item) {
                         $item->product->decrement('stok', $item->qty);
@@ -115,19 +138,15 @@ class TransaksiController extends Controller
                 }
             }
 
-            Log::info('Stok berhasil dikurangi untuk transaksi:', ['order_id' => $notif->order_id]);
+            Log::info('Transaksi sukses, stok dikurangi', ['order_id' => $orderId]);
         }
 
-        // Jika transaksi gagal / dibatalkan
-        if (in_array($notif->transaction_status, ['cancel', 'expire', 'deny'])) {
+        // Jika transaksi gagal / dibatalkan / kadaluarsa
+        if (in_array($transactionStatus, ['cancel', 'expire', 'deny'])) {
             if ($transaksi->cart_id) {
                 $transaksi->cart()->update(['status' => 'cancelled']);
             }
-
-            Log::warning('Transaksi gagal atau dibatalkan:', [
-                'order_id' => $notif->order_id,
-                'status' => $notif->transaction_status,
-            ]);
+            Log::warning('Transaksi gagal atau dibatalkan', ['order_id' => $orderId]);
         }
 
         return response()->json(['message' => 'Callback processed successfully']);
