@@ -72,11 +72,17 @@ class CartController extends Controller
         return response()->json(['message' => 'Cart updated', 'cart' => $cart->load('items')]);
     }
 
-    public function destroy(Cart $cart)
-    {
-        $this->authorize('delete', $cart);
+   public function destroy(Cart $cart)
+{
+    $user = auth()->user();
 
-        $cart->delete();
-        return response()->json(['message' => 'Cart deleted']);
+    // Pastikan cart milik user yang login
+    if ($cart->user_id !== $user->id) {
+        return response()->json(['message' => 'Anda tidak memiliki izin menghapus cart ini.'], 403);
     }
+
+    $cart->delete();
+    return response()->json(['message' => 'Cart deleted']);
+}
+
 }
