@@ -151,5 +151,31 @@ class TransaksiController extends Controller
         return response()->json(['message' => 'Gagal mengambil status dari Midtrans'], 500);
     }
 }
+  public function index()
+    {
+        $transaksis = Transaksi::with(['product','user'])->get();
+        return response()->json($transaksis);
+    }
+     public function show($id)
+    {
+        $transaksi = Transaksi::with(['product','user'])->find($id);
 
+        if (!$transaksi) {
+            return response()->json(['message' => 'Transaksi tidak ditemukan'], 404);
+        }
+
+        return response()->json($transaksi);
+    }
+    public function destroy($id)
+    {
+        $transaksi = Transaksi::find($id);
+
+        if (!$transaksi) {
+            return response()->json(['message' => 'Transaksi tidak ditemukan'], 404);
+        }
+
+        $transaksi->delete();
+
+        return response()->json(['message' => 'Transaksi berhasil dihapus']);
+    }
 }

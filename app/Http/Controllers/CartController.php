@@ -85,30 +85,6 @@ class CartController extends Controller
     $cart->delete();
     return response()->json(['message' => 'Cart deleted']);
 }
-public function paymentSuccess($orderId, Request $request)
-{
-    // Cek transaksi di database
-    $transaksi = Transaksi::where('order_id', $orderId)->first();
 
-    if (!$transaksi) {
-        return response()->json(['message' => 'Transaksi tidak ditemukan'], 404);
-    }
-
-    // Ambil status terbaru dari Midtrans
-    try {
-        $status = \Midtrans\Transaction::status($orderId);
-        $transaksi->update([
-            'status' => $status->transaction_status,
-        ]);
-    } catch (\Exception $e) {
-        Log::error('Gagal mengambil status dari Midtrans', ['error' => $e->getMessage()]);
-    }
-
-    // Tampilkan halaman sukses
-    return view('payment.success', [
-        'transaksi' => $transaksi,
-        'status' => $transaksi->status,
-    ]);
-}
 
 }
