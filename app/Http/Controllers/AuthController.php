@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\SecUser;
-use App\Models\secUserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

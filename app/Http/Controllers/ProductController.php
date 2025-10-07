@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -25,10 +26,9 @@ class ProductController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            // generate nama file hash unik
-            $filename = $request->file('image')->hashName();
-            $request->file('image')->move(public_path('storage/products'), $filename);
-            $validated['image'] = 'products/' . $filename;
+            // simpan ke disk public -> storage/app/public/products
+            $path = $request->file('image')->store('products', 'public');
+            $validated['image'] = $path; // e.g., products/xxxx.jpg
         }
 
         $product = Product::create($validated);
@@ -53,15 +53,14 @@ class ProductController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            // hapus file lama
-            if ($product->image && file_exists(public_path($product->image))) {
-                unlink(public_path($product->image));
+            // hapus file lama di disk public
+            if ($product->image) {
+                Storage::disk('public')->delete($product->image);
             }
 
-            // generate nama file hash unik
-            $filename = $request->file('image')->hashName();
-            $request->file('image')->move(public_path('storage/products'), $filename);
-            $validated['image'] = 'products/' . $filename;
+            // simpan file baru ke disk public
+            $path = $request->file('image')->store('products', 'public');
+            $validated['image'] = $path;
         }
 
         $product->update($validated);
@@ -71,8 +70,8 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        if ($product->image && file_exists(public_path($product->image))) {
-            unlink(public_path($product->image));
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image);
         }
 
         $product->delete();
