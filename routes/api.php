@@ -46,7 +46,9 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('transaksi-admin', CartController::class)->middleware('role:Admin');
     Route::apiResource('carts', CartController::class)->middleware('role:User');
 });
-Route::post('/midtrans/callback', [TransaksiController::class, 'callback']);
+Route::get('/payment/success/{orderId}', [TransaksiController::class, 'paymentSuccess'])
+    ->name('payment.success');
+Route::get('/midtrans/check-status/{orderId}', [TransaksiController::class, 'checkStatus']);
 Route::get('/user-products', [ProductController::class,'index']);
 Route::get('/user-categories', [ProductCategoryController::class,'index']);
 Route::get('/user-subcategories', [ProductSubcategoryController::class,'index']);
