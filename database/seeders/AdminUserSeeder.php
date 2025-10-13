@@ -41,15 +41,15 @@ class AdminUserSeeder extends Seeder
                     'updated_at' => now(),
                 ]);
 
-                echo "✅ Default admin user created successfully!\n";
+                echo "✅ User admin default berhasil dibuat!\n";
                 echo "   Email: admin@alienstore.com\n";
                 echo "   Password: admin123\n";
-                echo "   ⚠️  Please change the password after first login!\n\n";
+                echo "   ⚠️  Silakan ganti password setelah login pertama!\n\n";
             } else {
-                echo "❌ Error: Admin role not found. Please run SecRoleSeeder first.\n";
+                echo "❌ Error: Role Admin tidak ditemukan. Silakan jalankan SecRoleSeeder terlebih dahulu.\n";
             }
         } else {
-            echo "ℹ️  Admin user already exists. Skipping creation.\n";
+            echo "ℹ️  User admin sudah ada. Melewati pembuatan.\n";
         }
     }
 }
