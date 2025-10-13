@@ -64,4 +64,85 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# masterLaravelBe
+# AlienStore Backend (Laravel)
+
+This is the Laravel backend API for the AlienStore e-commerce application.
+
+## Quick Setup
+
+1. **Install dependencies:**
+   ```bash
+   composer install
+   ```
+
+2. **Set up environment:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+3. **Configure database in `.env`:**
+   ```env
+   DB_DATABASE=alienstore
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
+
+4. **Run migrations and seeders:**
+   ```bash
+   php artisan migrate
+   php artisan db:seed
+   ```
+
+5. **Start server:**
+   ```bash
+   php artisan serve
+   ```
+
+## Default Admin User
+
+After running `php artisan db:seed`, a default admin user will be created:
+
+- **Email:** `admin@alienstore.com`
+- **Password:** `admin123`
+- **Role:** Admin
+
+⚠️ **Change the password after first login!**
+
+## Manual Admin Creation
+
+You can also create an admin user manually:
+
+```bash
+# Use default credentials
+php artisan admin:create
+
+# Or specify custom credentials
+php artisan admin:create --email=admin@example.com --password=mypassword --name="Admin User"
+```
+
+## API Endpoints
+
+The API will be available at `http://localhost:8000/api/`
+
+Key endpoints include:
+- `POST /api/login` - User authentication
+- `POST /api/register` - User registration
+- `GET /api/products` - Get products
+- `GET /api/categories` - Get categories
+- `POST /api/carts` - Manage shopping cart
+- `POST /api/transaksi` - Create transactions
+
+## Troubleshooting
+
+**Admin user creation failed?**
+1. Ensure roles exist: `php artisan db:seed --class=SecRoleSeeder`
+2. Then create admin: `php artisan admin:create`
+
+**Database connection issues?**
+- Check your `.env` database settings
+- Ensure MySQL service is running
+- Verify database exists: `CREATE DATABASE alienstore;`
+
+**Permission errors?**
+- Ensure storage directory is writable: `chmod -R 775 storage bootstrap/cache`
